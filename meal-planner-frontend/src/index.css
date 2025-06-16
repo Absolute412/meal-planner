@@ -392,3 +392,16 @@ hr {
 .social-icons a:hover {
   color: #f0c040;
 }
+
+
+
+/* Responsive Navlinks for smaller screens */
+@media screen and (max-width: 600px) {
+  .navlinks a {
+    font-size: 0.9rem; /* Or any other size you prefer */
+  }
+
+  .navlinks {
+    gap: 1.5rem; /* You might want to adjust the gap as well */
+  }
+}
