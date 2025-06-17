@@ -13,7 +13,7 @@ export const Home = () => {
 
         const fetchMeals = async () => {
             try {
-                const response = await fetch("http://localhost:8080/api/meals");
+                const response = await fetch("https://meal-planner-backend-production-abea.up.railway.app/meals");
                 const data = await response.json();
                 setMeals(data);
             } catch (error) {
@@ -26,7 +26,7 @@ export const Home = () => {
         if (!confirmDelete) return;
 
         try {
-        const response = await fetch(`http://localhost:8080/api/meals/${id}`, {
+        const response = await fetch(`https://meal-planner-backend-production-abea.up.railway.app/meals/${id}`, {
             method: "DELETE",
         });
 

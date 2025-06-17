@@ -14,7 +14,7 @@ const EditMeal = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:8080/api/meals/${id}`)
+    fetch(`https://meal-planner-backend-production-abea.up.railway.app/meals/${id}`)
       .then(res => res.json())
       .then(data => {
         const formattedDate = data.date ? data.date.split("T")[0] : "";
