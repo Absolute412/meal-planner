@@ -13,7 +13,7 @@ export const Home = () => {
 
         const fetchMeals = async () => {
             try {
-                const response = await fetch("https://meal-planner-backend-production-abea.up.railway.app/meals");
+                const response = await fetch("https://meal-planner-backend-production-abea.up.railway.app/api/meals");
                 const data = await response.json();
                 setMeals(data);
             } catch (error) {
@@ -26,7 +26,7 @@ export const Home = () => {
         if (!confirmDelete) return;
 
         try {
-        const response = await fetch(`https://meal-planner-backend-production-abea.up.railway.app/meals/${id}`, {
+        const response = await fetch(`https://meal-planner-backend-production-abea.up.railway.app/api/meals/${id}`, {
             method: "DELETE",
         });
 

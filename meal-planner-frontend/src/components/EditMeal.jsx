@@ -14,7 +14,7 @@ const EditMeal = () => {
   });
 
   useEffect(() => {
-    fetch(`https://meal-planner-backend-production-abea.up.railway.app/meals/${id}`)
+    fetch(`https://meal-planner-backend-production-abea.up.railway.app/api/meals/${id}`)
       .then(res => res.json())
       .then(data => {
         const formattedDate = data.date ? data.date.split("T")[0] : "";
@@ -32,7 +32,7 @@ const EditMeal = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://localhost:8080/api/meals/${id}`, {
+      const response = await fetch(`https://meal-planner-backend-production-abea.up.railway.app/api/meals/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"

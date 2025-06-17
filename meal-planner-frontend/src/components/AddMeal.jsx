@@ -20,7 +20,7 @@ const AddMeal = () => {
         e.preventDefault();
 
         try {
-            const response = await fetch("https://meal-planner-backend-production-abea.up.railway.app/meals", {
+            const response = await fetch("https://meal-planner-backend-production-abea.up.railway.app/api/meals", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
