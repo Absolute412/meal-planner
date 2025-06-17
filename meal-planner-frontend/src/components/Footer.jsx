@@ -11,9 +11,9 @@ export const Footer =()=> {
                         Eat better, save time, and plan your meals effortlessly.
                     </p>
                     <div className="footer-socials">
-                        <a href="#"><FaFacebook /><i className="fab fa-facebook"></i></a>
-                        <a href="#"><FaTwitter /><i className="fab fa-twitter"></i></a>
-                        <a href="#"><FaInstagram /><i className="fab fa-instagram"></i></a>
+                        <a href="#"><FaFacebook /></a>
+                        <a href="#"><FaTwitter /></a>
+                        <a href="#"><FaInstagram /></a>
                     </div>
                 </div>
 

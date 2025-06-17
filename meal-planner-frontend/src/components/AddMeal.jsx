@@ -37,7 +37,7 @@ const AddMeal = () => {
                 alert("Failed to add meal");
             }
         } catch (error) {
-            console.error("Error:", error);;
+            console.error("Error:", error);
             alert("something went wrong");
         }
     };
