@@ -165,19 +165,54 @@ body {
   gap: 1.5rem;
 }
 
-.meal-card {
-  border: 1px solid #ddd;
-  padding: 1rem;
-  border-radius: 14px;
-  background-color: #7b7a7a;
-  color: #ddd;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.meal-date-group {
+  margin-bottom: 2.5rem;
 }
 
-.meal-card h3 {
-  color: #f0c040;
+.meal-date {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 2px solid #f0c040;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.meal-card {
+  /* background-color: #f4f4f4; */
+  background-color: #7b7a7a;
+  color: #333;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  transition: transform 0.2s ease;
+  border: 1px solid #eee;
+}
+
+.meal-card:hover {
+  transform: translateY(-2px);
+}
+
+.meal-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #f0c040;;
+}
+
+.meal-card p {
+  font-size: 0.95rem;
+  color: #ddd;
   margin-bottom: 0.5rem;
 }
+
+.meal-card small {
+  display: block;
+  font-size: 0.85rem;
+  color: #ddd;
+  margin-bottom: 0.6rem;
+}
+
 
 .delete-btn {
   background-color: orangered;
@@ -208,6 +243,17 @@ body {
 
 .edit-btn:hover {
   background-color: #d7aa30;
+}
+
+.meal-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meal-buttons {
+  display: flex;
+  margin-bottom: 1rem;
 }
 
 

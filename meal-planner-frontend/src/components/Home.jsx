@@ -43,6 +43,20 @@ export const Home = () => {
     }
   };
 
+  const groupedMeals = meals.reduce((acc, meal) => {
+    const date = meal.date;
+    if (!acc[date]) {
+        acc[date] = [];
+    }
+    acc[date].push(meal);
+    return acc;
+  }, {});
+
+  const formatDate = (rawDate => {
+    const options = {year: "numeric", month: "long", day: "numeric"};
+    return new Date(rawDate).toLocaleDateString(undefined, options);
+  })
+
     return (
         <>
         <Navbar/>
@@ -50,25 +64,37 @@ export const Home = () => {
 
         <section className="meals-section">
             <h2 className="meals-section-h2">All Meals</h2>
-            <div className="meals-list">
-                {meals.length === 0 ? (
+
+            {meals.length === 0 ? (
                 <p className="meals-section-p">No meals added yet.</p>
             ) : (
-                meals.map((meal) => (
-                    <div key={meal.id} className="meal-card">
-                        <h3>{meal.title}</h3>
-                        <p>{meal.description}</p>
-                        <small>{meal.date}</small>
-                        <Link to={`editmeal/${meal.id}`} className="edit-btn">
-                            Edit
-                        </Link>
-                        <button className="delete-btn" onClick={() => handleDelete(meal.id)}>
-                            Delete
-                        </button>
+                Object.keys(groupedMeals)
+                .sort((a, b) => new Date(a) - new Date(b))
+                .map((date) => (
+                    <div key={date} className="meal-date-group">
+                        <h3 className="meal-date">{formatDate(date)}</h3>
+                        <div className="meals-list">
+                            {groupedMeals[date].map((meal) => (
+                                <div key={meal.id} className="meal-card">
+                                    <h4>{meal.title}</h4>
+                                    <p>{meal.description}</p>
+                                    <div className="meal-card-footer">
+                                        <small>{meal.date}</small>
+                                    <div className="meal-buttons">
+                                        <Link to={`editmeal/${meal.id}`} className="edit-btn">
+                                            Edit
+                                        </Link>
+                                    <button className="delete-btn" onClick={() => handleDelete(meal.id)}>
+                                        Delete
+                                    </button>
+                                    </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 ))
             )}
-            </div>
         </section>
 
         <Footer/>
