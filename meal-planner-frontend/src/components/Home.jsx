@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import { Footer } from "./Footer";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"
+import toast from "react-hot-toast";
 
 export const Home = () => {
     const [meals, setMeals] = useState([]);
@@ -33,13 +34,13 @@ export const Home = () => {
         if (response.ok) {
             // Remove deleted meal from UI
             setMeals(meals.filter((meal) => meal.id !== id));
-            alert("Meal deleted successfully.");
+            toast.success("Meal deleted successfully.");
         } else {
-            alert("Failed to delete meal.");
+            toast.error("Failed to delete meal.");
         }
     } catch (error) {
         console.error("Error deleting meal:", error);
-        alert("Something went wrong.");
+        toast.error("Something went wrong.");
     }
   };
 

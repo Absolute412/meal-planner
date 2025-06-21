@@ -2,6 +2,7 @@ import Navbar from "./Navbar";
 import { Footer } from "./Footer";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate} from "react-router-dom"
+import toast from "react-hot-toast";
 
 const EditMeal = () => {
   const { id } = useParams();
@@ -41,14 +42,14 @@ const EditMeal = () => {
       });
 
       if (response.ok) {
-        alert("Meal updated successfully!");
+        toast.success("Meal updated successfully!");
         navigate("/");
       } else {
-        alert("Failed to update meal.");
+        toast.error("Failed to update meal.")
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Something went wrong.");
+      toast.error("Something went wrong.")
     }
 
     if (!meal.title && !meal.description && !meal.date) {
@@ -61,7 +62,8 @@ const EditMeal = () => {
     <>
     <Navbar/>
 
-    <div className="edit-form-container">
+    <main>
+      <div className="edit-form-container">
       <h2>Edit Meal</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -89,8 +91,9 @@ const EditMeal = () => {
 
         <button type="submit">Update Meal</button>
       </form>
-    </div>
-
+      </div>
+    </main>
+    
     <Footer/>
     </>
   );

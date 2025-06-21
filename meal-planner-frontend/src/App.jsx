@@ -1,3 +1,4 @@
+import { Toaster } from "react-hot-toast"
 import { createBrowserRouter, RouterProvider} from "react-router-dom"
 import { Home } from "./components/Home"
 import AddMeal from "./components/AddMeal";
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+      <Toaster position="top-center"/>
       <RouterProvider router={router}/>
     </>
   );

@@ -2,6 +2,7 @@ import { useState } from "react";
 import Navbar from "./Navbar";
 import { Footer } from "./Footer";
 import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast";
 
 const AddMeal = () => {
     const navigate = useNavigate();
@@ -29,16 +30,16 @@ const AddMeal = () => {
             });
 
             if (response.ok) {
-                alert("Meal added successfully!");
+                toast.success("Meal added successfully!");
                 setMeal({title: "", description: "", date: ""});
 
                 navigate("/"); //Redirects to Home
             } else {
-                alert("Failed to add meal");
+                toast.error("Failed to add meal.");
             }
         } catch (error) {
             console.error("Error:", error);
-            alert("something went wrong");
+            toast.error("Something went wrong.");
         }
     };
 
@@ -46,32 +47,36 @@ const AddMeal = () => {
         <>
         <Navbar/>
 
-        <div className="form-container">
-            <h2>Add a New Meal</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="text"
-                    name="title"
-                    placeholder="Meal Title"
-                    value={meal.title}
-                    onChange={handleChange}
-                    required
-                 />
-                 <textarea name="description" 
+        <main>
+            <div className="form-container">
+                <h2>Add a New Meal</h2>
+                <form onSubmit={handleSubmit}>
+                    <input type="text"
+                        name="title"
+                        placeholder="Meal Title"
+                        value={meal.title}
+                        onChange={handleChange}
+                        required
+                    />
+                    <textarea name="description" 
                         placeholder="Description"
                         value={meal.description}
                         onChange={handleChange}
                         required
-                 />
-                 <input type="date" 
+                    />
+                    <input type="date" 
                         name="date"
                         value={meal.date}
                         onChange={handleChange}
                         required
-                 />
+                    />
 
-                 <button type="submit">Add Meal</button>
+                    <button type="submit">Add Meal</button>
             </form>
         </div>
+        </main>
+
+        
 
         <Footer/>
         </>
