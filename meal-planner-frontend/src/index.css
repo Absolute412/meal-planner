@@ -22,6 +22,7 @@ body {
 }
 
 .nav-container {
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,6 +30,8 @@ body {
   background-color: #f4f4f4;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   gap: 1rem;
+  width: 100%;
+  z-index: 999;
 }
 
 .planner-text {
@@ -43,7 +46,7 @@ body {
 .navlinks {
   display: flex;
   gap: 2rem;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease, gap 0.3s ease, background-color 0s;
   z-index: 50;
 }
 
@@ -69,6 +72,7 @@ body {
   font-size: 1.2rem;
   color: inherit;
   margin-right: auto;
+  padding-top: 0.2rem;
 }
 
 .nav-right {
@@ -86,6 +90,7 @@ body {
   border-radius: 20px;
   margin: 20px;
   overflow: hidden;
+  margin-top: 80px;
 }
 
 .hero-container::before {
@@ -263,6 +268,7 @@ main {
   background-color: #fefefe;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+  margin-top: 124px;
 }
 
 .form-container h2 {
@@ -312,6 +318,7 @@ main {
   background-color: #fefefe;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
+  margin-top: 124px;
 }
 
 .edit-form-container h2 {
@@ -362,6 +369,7 @@ main {
   align-items: center;
   padding: 2rem;
   text-align: center;
+  margin-top: 60px;
 }
 
 .about-title {
@@ -467,22 +475,6 @@ hr {
   margin-top: 10px;
 }
 
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.social-icons a {
-  color: white;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #f0c040;
-}
-
 @media screen and (min-width: 1024px) {
   .nav-right {
     display: flex;
@@ -538,7 +530,7 @@ body.light {
 }
 
 body.dark {
-  background-color: #121212;
+  background-color: #1a1a1a;
   color: #f0f0f0;
 }
 
@@ -563,10 +555,24 @@ body.dark .navlinks a {
   color: #ccc;
 }
 
+body.dark .navlinks a:hover {
+  color: #f0c040;
+}
+
+body.dark .hero-btn {
+  background-color: #555;
+  color: #ccc;
+}
+
 body.dark .form-container,
 body.dark .edit-form-container {
   background-color: #1e1e1e;
   color: #f0f0f0;
+}
+
+body.dark .form-container h2,
+body.dark .edit-form-container h2 {
+  color: #ccc;
 }
 
 body.dark .form-container input,
@@ -601,6 +607,10 @@ body.dark .meal-card small {
   color: #ccc;
 }
 
+body.dark .meal-date {
+  color: #f0f0f0;
+}
+
 body.dark .edit-btn {
   background-color: #f0c040;
   color: #121212;
@@ -608,6 +618,7 @@ body.dark .edit-btn {
 
 body.dark .delete-btn {
   background-color: #e53935;
+  color: #121212;
 }
 
 body.dark .about-title {
@@ -619,7 +630,15 @@ body.dark .about-description {
 }
 
 body.dark .footer {
-  background-color: #1a1a1a;
+  background-color: #121212;
+}
+
+body.dark .footer-socials a:hover {
+  color: #f0c040;
+}
+
+body.dark .footer-section ul li a:hover {
+  color: #f0c040;
 }
 
 body.dark .footer-description,
