@@ -1,4 +1,5 @@
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"
+import { FaFacebook, FaInstagram } from "react-icons/fa"
+import { RiTwitterXFill } from "react-icons/ri";
 
 export const Footer =()=> {
     return (
@@ -12,7 +13,7 @@ export const Footer =()=> {
                     </p>
                     <div className="footer-socials">
                         <a href="#"><FaFacebook /></a>
-                        <a href="#"><FaTwitter /></a>
+                        <a href="#"><RiTwitterXFill /></a>
                         <a href="#"><FaInstagram /></a>
                     </div>
                 </div>
